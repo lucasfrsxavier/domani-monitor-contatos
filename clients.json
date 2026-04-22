@@ -1,0 +1,97 @@
+[
+  {
+    "name": "Brewteco",
+    "token_envs": ["TOKEN_BREWTECO"],
+    "limit": 20000
+  },
+  {
+    "name": "Todeschini Ipanema",
+    "token_envs": ["TOKEN_TODESCHINI_IPANEMA"],
+    "limit": 1000
+  },
+  {
+    "name": "Vino Veritas",
+    "token_envs": ["TOKEN_VINO_VERITAS"],
+    "limit": 1000
+  },
+  {
+    "name": "Scope",
+    "token_envs": ["TOKEN_SCOPE"],
+    "limit": 10000
+  },
+  {
+    "name": "rufi",
+    "token_envs": ["TOKEN_RUFI"],
+    "limit": 2000
+  },
+  {
+    "name": "Rastropop",
+    "token_envs": [
+      "TOKEN_RASTROPOP_1",
+      "TOKEN_RASTROPOP_2"
+    ],
+    "limit": 1000
+  },
+  {
+    "name": "Primework",
+    "token_envs": ["TOKEN_PRIMEWORK"],
+    "limit": 1000
+  },
+  {
+    "name": "Porto Di Vino",
+    "token_envs": [
+      "TOKEN_PORTO_DI_VINO_1",
+      "TOKEN_PORTO_DI_VINO_2",
+      "TOKEN_PORTO_DI_VINO_3"
+    ],
+    "limit": 10000
+  },
+  {
+    "name": "Óptica Exclusive",
+    "token_envs": ["TOKEN_OPTICA_EXCLUSIVE"],
+    "limit": 2000
+  },
+  {
+    "name": "Marry Spot",
+    "token_envs": [
+      "TOKEN_MARRY_SPOT_1",
+      "TOKEN_MARRY_SPOT_2",
+      "TOKEN_MARRY_SPOT_3",
+      "TOKEN_MARRY_SPOT_4",
+      "TOKEN_MARRY_SPOT_5",
+      "TOKEN_MARRY_SPOT_6"
+    ],
+    "limit": 1000
+  },
+  {
+    "name": "Italínea Botânica",
+    "token_envs": ["TOKEN_ITALINEA_BOTANICA"],
+    "limit": 1000
+  },
+  {
+    "name": "Grupo Zarth",
+    "token_envs": [
+      "TOKEN_GRUPO_ZARTH_1",
+      "TOKEN_GRUPO_ZARTH_2"
+    ],
+    "limit": 10000
+  },
+  {
+    "name": "Grupo Privilège",
+    "token_envs": [
+      "TOKEN_GRUPO_PRIVILEGE_1",
+      "TOKEN_GRUPO_PRIVILEGE_2"
+    ],
+    "limit": 1000
+  },
+  {
+    "name": "COMO Coworking",
+    "token_envs": ["TOKEN_COMO_COWORKING"],
+    "limit": 1000
+  },
+  {
+    "name": "Chez Cox Gastronomia",
+    "token_envs": ["TOKEN_CHEZ_COX_GASTRONOMIA"],
+    "limit": 1000
+  }
+]

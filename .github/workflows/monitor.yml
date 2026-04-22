@@ -1,0 +1,62 @@
+name: Monitor de Contatos
+
+on:
+  schedule:
+    - cron: "0 11 * * *"   # 8h horário de Brasília (UTC-3)
+    - cron: "0 15 * * *"   # 12h horário de Brasília
+    - cron: "0 21 * * *"   # 18h horário de Brasília
+  workflow_dispatch:        # permite rodar manualmente pelo GitHub
+
+jobs:
+  gerar-relatorio:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v4
+
+      - name: Instalar uv
+        uses: astral-sh/setup-uv@v4
+
+      - name: Instalar dependências
+        run: uv sync
+
+      - name: Gerar relatório
+        env:
+          DOMANI_BASE_URL:            ${{ secrets.DOMANI_BASE_URL }}
+          SUPABASE_DB_URL:            ${{ secrets.SUPABASE_DB_URL }}
+          REPORT_PASSWORD:            ${{ secrets.REPORT_PASSWORD }}
+          TOKEN_BREWTECO:             ${{ secrets.TOKEN_BREWTECO }}
+          TOKEN_TODESCHINI_IPANEMA:   ${{ secrets.TOKEN_TODESCHINI_IPANEMA }}
+          TOKEN_VINO_VERITAS:         ${{ secrets.TOKEN_VINO_VERITAS }}
+          TOKEN_SCOPE:                ${{ secrets.TOKEN_SCOPE }}
+          TOKEN_RUFI:                 ${{ secrets.TOKEN_RUFI }}
+          TOKEN_RASTROPOP_1:          ${{ secrets.TOKEN_RASTROPOP_1 }}
+          TOKEN_RASTROPOP_2:          ${{ secrets.TOKEN_RASTROPOP_2 }}
+          TOKEN_PRIMEWORK:            ${{ secrets.TOKEN_PRIMEWORK }}
+          TOKEN_PORTO_DI_VINO_1:      ${{ secrets.TOKEN_PORTO_DI_VINO_1 }}
+          TOKEN_PORTO_DI_VINO_2:      ${{ secrets.TOKEN_PORTO_DI_VINO_2 }}
+          TOKEN_PORTO_DI_VINO_3:      ${{ secrets.TOKEN_PORTO_DI_VINO_3 }}
+          TOKEN_OPTICA_EXCLUSIVE:     ${{ secrets.TOKEN_OPTICA_EXCLUSIVE }}
+          TOKEN_MARRY_SPOT_1:         ${{ secrets.TOKEN_MARRY_SPOT_1 }}
+          TOKEN_MARRY_SPOT_2:         ${{ secrets.TOKEN_MARRY_SPOT_2 }}
+          TOKEN_MARRY_SPOT_3:         ${{ secrets.TOKEN_MARRY_SPOT_3 }}
+          TOKEN_MARRY_SPOT_4:         ${{ secrets.TOKEN_MARRY_SPOT_4 }}
+          TOKEN_MARRY_SPOT_5:         ${{ secrets.TOKEN_MARRY_SPOT_5 }}
+          TOKEN_MARRY_SPOT_6:         ${{ secrets.TOKEN_MARRY_SPOT_6 }}
+          TOKEN_ITALINEA_BOTANICA:    ${{ secrets.TOKEN_ITALINEA_BOTANICA }}
+          TOKEN_GRUPO_ZARTH_1:        ${{ secrets.TOKEN_GRUPO_ZARTH_1 }}
+          TOKEN_GRUPO_ZARTH_2:        ${{ secrets.TOKEN_GRUPO_ZARTH_2 }}
+          TOKEN_GRUPO_PRIVILEGE_1:    ${{ secrets.TOKEN_GRUPO_PRIVILEGE_1 }}
+          TOKEN_GRUPO_PRIVILEGE_2:    ${{ secrets.TOKEN_GRUPO_PRIVILEGE_2 }}
+          TOKEN_COMO_COWORKING:       ${{ secrets.TOKEN_COMO_COWORKING }}
+          TOKEN_CHEZ_COX_GASTRONOMIA: ${{ secrets.TOKEN_CHEZ_COX_GASTRONOMIA }}
+        run: uv run main.py
+
+      - name: Publicar no GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .
+          include_files: report.html
+          destination_dir: .
