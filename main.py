@@ -7,6 +7,7 @@ import psycopg2
 import pandas as pd
 from datetime import datetime, timezone
 from dotenv import load_dotenv
+from zoneinfo import ZoneInfo
 
 load_dotenv()
 
@@ -202,7 +203,7 @@ def fmt(n, fallback="—"):
 
 
 def render_html(rows: list[dict], password: str) -> str:
-    now = datetime.now().strftime("%d/%m/%Y às %H:%M")
+    now = datetime.now(ZoneInfo("America/Sao_Paulo")).strftime("%d/%m/%Y às %H:%M")
 
     table_rows = ""
     for r in rows:
